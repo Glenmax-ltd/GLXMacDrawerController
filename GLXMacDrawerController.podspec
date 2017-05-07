@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "GLXMacDrawerController"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "Custom drawer controller for macOS 10.11 and above."
 
   s.description  = <<-DESC
@@ -14,14 +14,14 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/glenmax-ltd/GLXMacDrawerController"
   s.license      = { :type => "MIT", :file => "LICENSE.md" }
   s.authors       = { "Glenmax" => "support@glenmax.com" }
-  s.platform     = :macos, "10.10"
+  s.platform     = :osx, "10.11"
 
-  s.macos.deployment_target = "10.10"
+  s.osx.deployment_target = "10.11"
 
   s.source       = {
                     :git => "https://github.com/glenmax-ltd/GLXMacDrawerController.git",
                     :branch => "master",
-                    :tag => "v0.1.0"}
+                    :tag => "v0.1.1"}
 
 
   s.source_files  = "GLXMacDrawerController/*.swift"
