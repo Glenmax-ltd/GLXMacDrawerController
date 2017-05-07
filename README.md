@@ -1,4 +1,4 @@
-# GLXSegmentedControl
+# GLXMacDrawerController
 [![CocoaPods](https://img.shields.io/cocoapods/v/GLXMacDrawerController.svg)](https://cocoapods.org/pods/GLXSegmentedControl) [![license MIT](http://img.shields.io/badge/license-MIT-orange.png)](http://opensource.org/licenses/MIT) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ## Description
