@@ -50,13 +50,14 @@ open class GLXMacDrawerController:NSViewController {
         }
     }
     
-    fileprivate lazy var centerBox:NSBox = {
+    open lazy var centerBox:NSBox = {
         let box = NSBox()
         box.translatesAutoresizingMaskIntoConstraints = false
         box.titlePosition = .noTitle
         box.boxType = .custom
         box.borderType = .noBorder
         box.fillColor = self.centerViewBackgroundColor
+        box.contentViewMargins = NSSize(width: 0, height: 0)
         return box
     }()
     
