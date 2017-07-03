@@ -9,8 +9,8 @@
 import Foundation
 import Cocoa
 
-extension NSViewController {
-    var drawer:GLXMacDrawerController? {
+public extension NSViewController {
+    public var drawer:GLXMacDrawerController? {
         if let parent = self.parent {
             if let drawer = parent as? GLXMacDrawerController {
                 return drawer
