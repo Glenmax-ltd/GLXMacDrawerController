@@ -36,7 +36,11 @@ open class GLXMacControllerSegue: NSStoryboardSegue {
 
 open class GLXMacDrawerController:NSViewController {
     
-    open var isOpen = false
+    open var isOpen = false {
+        didSet {
+            centerButton.isHidden = !isOpen
+        }
+    }
     
     open var openDrawerWidth:CGFloat = 300 {
         didSet {
@@ -59,6 +63,17 @@ open class GLXMacDrawerController:NSViewController {
         box.fillColor = self.centerViewBackgroundColor
         box.contentViewMargins = NSSize(width: 0, height: 0)
         return box
+    }()
+    
+    open lazy var centerButton:NSButton = {
+        let button = NSButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isBordered = false
+        button.target = self
+        button.action = #selector(closeAnimated)
+        button.title = ""
+        button.setButtonType(.momentaryChange)
+        return button
     }()
     
     open var centerViewController:NSViewController? {
@@ -136,6 +151,14 @@ open class GLXMacDrawerController:NSViewController {
         self.leadingNavigationConstraint?.isActive = true
         self.trailingNavigationConstraint = centerBox.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         self.trailingNavigationConstraint?.isActive = true
+        
+        self.view.addSubview(centerButton, positioned: .above, relativeTo: centerBox)
+        self.view.topAnchor.constraint(equalTo: centerButton.topAnchor).isActive = true
+        self.view.bottomAnchor.constraint(equalTo: centerButton.bottomAnchor).isActive = true
+        centerBox.leadingAnchor.constraint(equalTo: centerButton.leadingAnchor).isActive = true
+        centerBox.trailingAnchor.constraint(equalTo: centerButton.trailingAnchor).isActive = true
+        
+        centerButton.isHidden = true
     }
     
     override open func prepare(for segue: NSStoryboardSegue, sender: Any?) {
@@ -181,6 +204,11 @@ open class GLXMacDrawerController:NSViewController {
             self.leadingNavigationConstraint?.constant = 0
             self.trailingNavigationConstraint?.constant = 0
         }
+        
+    }
+    
+    open func closeAnimated() {
+        self.close(animated: true)
         
     }
     
