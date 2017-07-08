@@ -62,7 +62,6 @@ open class GLXMacDrawerController:NSViewController {
         box.borderType = .noBorder
         box.fillColor = self.centerViewBackgroundColor
         box.contentViewMargins = NSSize(width: 0, height: 0)
-        box.wantsLayer = true
         return box
     }()
     
@@ -95,8 +94,6 @@ open class GLXMacDrawerController:NSViewController {
                     viewController.view.trailingAnchor.constraint(equalTo: centerBox.trailingAnchor).isActive = true
                     viewController.view.leadingAnchor.constraint(equalTo: centerBox.leadingAnchor).isActive = true
                 }
-                viewController.view.wantsLayer = true
-                viewController.view.layer?.zPosition = 1
             }
         }
     }
@@ -120,8 +117,6 @@ open class GLXMacDrawerController:NSViewController {
                     widthConstraint = viewController.view.widthAnchor.constraint(equalToConstant: openDrawerWidth)
                     widthConstraint?.isActive = true
                 }
-                viewController.view.wantsLayer = true
-                viewController.view.layer?.zPosition = 0
             }
             if !self.isOpen {
                 leftViewController?.view.isHidden = true
