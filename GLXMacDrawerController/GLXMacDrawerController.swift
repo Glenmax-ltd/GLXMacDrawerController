@@ -118,6 +118,9 @@ open class GLXMacDrawerController:NSViewController {
                     widthConstraint?.isActive = true
                 }
             }
+            if !self.isOpen {
+                leftViewController?.view.isHidden = true
+            }
         }
     }
     
@@ -175,13 +178,13 @@ open class GLXMacDrawerController:NSViewController {
     
     open func open(animated:Bool) {
         self.isOpen = true
-        
+        self.leftViewController?.view.isHidden = false
         if animated {
             NSAnimationContext.runAnimationGroup({[unowned self] (context) in
                 context.duration = 0.25
                 self.leadingNavigationConstraint?.animator().constant = self.openDrawerWidth
                 self.trailingNavigationConstraint?.animator().constant = self.openDrawerWidth
-            }, completionHandler: nil)
+                }, completionHandler: nil)
         }
         else {
             self.leadingNavigationConstraint?.constant = self.openDrawerWidth
@@ -198,11 +201,14 @@ open class GLXMacDrawerController:NSViewController {
                 context.duration = 0.25
                 self.leadingNavigationConstraint?.animator().constant = 0
                 self.trailingNavigationConstraint?.animator().constant = 0
-            }, completionHandler: nil)
+                }, completionHandler: {
+                    self.leftViewController?.view.isHidden = true
+            })
         }
         else {
             self.leadingNavigationConstraint?.constant = 0
             self.trailingNavigationConstraint?.constant = 0
+            self.leftViewController?.view.isHidden = true
         }
         
     }
