@@ -729,6 +729,15 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="caS-nx-Pf5">
+                                <rect key="frame" x="7" y="176" width="177" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" ambiguous="YES" id="htO-1g-Q5t">
+                                    <rect key="frame" x="1" y="1" width="175" height="112"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <color key="fillColor" red="0.15686274510000001" green="0.47450980390000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </box>
                         </subviews>
                         <constraints>
                             <constraint firstItem="H7Q-8b-jxO" firstAttribute="centerY" secondItem="ff9-sQ-nZr" secondAttribute="centerY" id="HGA-2Q-4JK"/>

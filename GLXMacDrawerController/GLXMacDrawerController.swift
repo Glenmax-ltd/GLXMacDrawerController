@@ -62,6 +62,7 @@ open class GLXMacDrawerController:NSViewController {
         box.borderType = .noBorder
         box.fillColor = self.centerViewBackgroundColor
         box.contentViewMargins = NSSize(width: 0, height: 0)
+        box.wantsLayer = true
         return box
     }()
     
@@ -120,6 +121,7 @@ open class GLXMacDrawerController:NSViewController {
                     widthConstraint?.isActive = true
                 }
                 viewController.view.wantsLayer = true
+                viewController.view.layer?.zPosition = 0
             }
             if !self.isOpen {
                 leftViewController?.view.isHidden = true
